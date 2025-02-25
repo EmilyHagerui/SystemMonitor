@@ -1,0 +1,21 @@
+{
+    "monitor": {
+        "update_interval": 3,
+        "auto_clear_screen": true,
+        "show_system_info": true,
+        "show_cpu_info": true,
+        "show_memory_info": true,
+        "show_disk_info": true
+    },
+    "display": {
+        "use_colors": true,
+        "use_emojis": true,
+        "precision": 2
+    },
+    "alerts": {
+        "enabled": false,
+        "cpu_threshold": 80,
+        "memory_threshold": 85,
+        "disk_threshold": 90
+    }
+}
