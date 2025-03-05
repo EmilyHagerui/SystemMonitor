@@ -54,6 +54,23 @@ class SystemMonitor:
             'percentage': (disk.used / disk.total) * 100
         }
     
+    def get_network_info(self):
+        """Get network interface information"""
+        net_io = psutil.net_io_counters()
+        net_connections = len(psutil.net_connections())
+        
+        return {
+            'bytes_sent': self._bytes_to_mb(net_io.bytes_sent),
+            'bytes_recv': self._bytes_to_mb(net_io.bytes_recv),
+            'packets_sent': net_io.packets_sent,
+            'packets_recv': net_io.packets_recv,
+            'active_connections': net_connections
+        }
+    
+    def _bytes_to_mb(self, bytes_value):
+        """Convert bytes to MB"""
+        return round(bytes_value / (1024**2), 2)
+    
     def _bytes_to_gb(self, bytes_value):
         """Convert bytes to GB"""
         return round(bytes_value / (1024**3), 2)
@@ -65,5 +82,6 @@ class SystemMonitor:
             'system': self.system_info,
             'cpu': self.get_cpu_info(),
             'memory': self.get_memory_info(),
-            'disk': self.get_disk_info()
+            'disk': self.get_disk_info(),
+            'network': self.get_network_info()
         }

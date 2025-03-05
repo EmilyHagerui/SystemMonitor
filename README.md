@@ -4,10 +4,12 @@ A lightweight system monitoring tool built with Python.
 
 ## Features
 
-- Monitor CPU, Memory, and Disk usage
+- Monitor CPU, Memory, Disk, and Network usage
 - Real-time system statistics
-- Simple command-line interface
-- Configurable monitoring intervals
+- Configurable alert system with thresholds
+- Simple command-line interface with multiple options
+- JSON-based configuration management
+- Color-coded alerts and notifications
 
 ## Installation
 

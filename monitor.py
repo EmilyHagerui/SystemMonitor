@@ -50,6 +50,12 @@ def display_info(info, alerts=None):
     print(f"   Used: {info['disk']['used']} GB ({info['disk']['percentage']:.1f}%)")
     print(f"   Free: {info['disk']['free']} GB")
     
+    # Network Info
+    print(f"\n🌐 Network Information:")
+    print(f"   Data Sent: {info['network']['bytes_sent']} MB")
+    print(f"   Data Received: {info['network']['bytes_recv']} MB")
+    print(f"   Active Connections: {info['network']['active_connections']}")
+    
     print(f"\n{'='*50}")
     print("Press Ctrl+C to exit...")
 
@@ -83,6 +89,14 @@ def display_once(info):
     print(f"   Total: {info['disk']['total']} GB")
     print(f"   Used: {info['disk']['used']} GB ({info['disk']['percentage']:.1f}%)")
     print(f"   Free: {info['disk']['free']} GB")
+    
+    # Network Info
+    print(f"\n🌐 Network Information:")
+    print(f"   Data Sent: {info['network']['bytes_sent']} MB")
+    print(f"   Data Received: {info['network']['bytes_recv']} MB")
+    print(f"   Packets Sent: {info['network']['packets_sent']:,}")
+    print(f"   Packets Received: {info['network']['packets_recv']:,}")
+    print(f"   Active Connections: {info['network']['active_connections']}")
 
 def parse_arguments():
     """Parse command line arguments"""
@@ -91,14 +105,14 @@ def parse_arguments():
                         help='Show system info once and exit')
     parser.add_argument('-i', '--interval', type=int, default=3,
                         help='Update interval in seconds (default: 3)')
-    parser.add_argument('-v', '--version', action='version', version='SystemMonitor v0.4.0')
+    parser.add_argument('-v', '--version', action='version', version='SystemMonitor v0.5.0')
     return parser.parse_args()
 
 def main():
     """Main entry point"""
     args = parse_arguments()
     
-    print("SystemMonitor v0.4.0")
+    print("SystemMonitor v0.5.0")
     print("Initializing...")
     
     # Load configuration
